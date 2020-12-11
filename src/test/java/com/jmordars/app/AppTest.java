@@ -68,6 +68,9 @@ public class AppTest
         assertEquals(0, ssp.getPriority(), 0);
         ssp.addSeat();
         assertEquals(1, ssp.getSeats());
+        assertEquals(1, ssp.getPopToRepRatio(), 0);
+        ssp.addSeat();
+        assertEquals(.5, ssp.getPopToRepRatio(), 0);
         ssp.setPriority(42.69);
         assertEquals(42.69, ssp.getPriority(), 0);
     }

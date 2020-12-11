@@ -30,4 +30,9 @@ public class StateSeatPair {
     public State getState() {
         return mState;
     }
+
+    public double getPopToRepRatio()
+    {
+        return (double) mState.getPopulation2010() / mSeats;
+    }
 }

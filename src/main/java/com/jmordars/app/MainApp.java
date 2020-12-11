@@ -6,8 +6,7 @@ public class MainApp {
 
         int numberOfSeats = 435;
 
-        if(args.length > 0)
-        {
+        if (args.length > 0) {
             numberOfSeats = Integer.parseInt(args[0]);
         }
 
@@ -17,7 +16,8 @@ public class MainApp {
         // Print results
         for (int i = 0; i < seatList.length; ++i) {
             StateSeatPair current = seatList[i];
-            System.out.println(current.getState().getName() + ": " + current.getSeats());
+            System.out.println(current.getState().getName() + ": " + current.getSeats() + " Pop ratio: "
+                    + Math.round(current.getPopToRepRatio()));
         }
 
         // calculate final total of seats
@@ -27,7 +27,7 @@ public class MainApp {
         }
 
         System.out.println("Final number of seats: " + finalTotal);
-     
+
         // calculate final population total
         int totalUSPopulation = 0;
         State[] states = hh.getStates();
