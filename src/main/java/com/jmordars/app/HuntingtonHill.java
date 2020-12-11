@@ -111,7 +111,7 @@ class HuntingtonHill {
         mStates[17] = new State("Louisiana", 4553962, 4648794, true);
         mStates[18] = new State("Maine", 1333074, 1344212, true);
         mStates[19] = new State("Maryland", 5789929, 6045680, true);
-        mStates[20] = new State("Massachusets", 6559644, 689503, true);
+        mStates[20] = new State("Massachusetts", 6559644, 689503, true);
         mStates[21] = new State("Michigan", 9911626, 9986857, true);
         mStates[22] = new State("Minnesota", 5314879, 5639632, true);
         mStates[23] = new State("Mississippi", 2978240, 2976149, true);

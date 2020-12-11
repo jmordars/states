@@ -17,8 +17,7 @@ public class MainApp {
         // Print results
         for (int i = 0; i < seatList.length; ++i) {
             StateSeatPair current = seatList[i];
-            System.out.println(
-                    "State: " + current.getState().getName() + "\tNumber of Seats: " + current.getSeats());
+            System.out.println(current.getState().getName() + ": " + current.getSeats());
         }
 
         // calculate final total of seats
