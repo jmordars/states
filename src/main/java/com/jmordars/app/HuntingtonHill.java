@@ -1,14 +1,5 @@
 package com.jmordars.app;
 
-import java.io.FileInputStream;
-import java.math.*;
-
-import org.apache.poi.*;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 class HuntingtonHill {
     private State[] mStates;
     private final static int NUM_OF_SEATS_TOTAL = 435;
@@ -44,7 +35,7 @@ class HuntingtonHill {
         // highest priority seat.
         StateSeatPair[] seatList = new StateSeatPair[50];
         for (int i = 0; i < 50; ++i) {
-            // give every state an initial representitive
+            // give every state an initial representative
             seatList[i] = new StateSeatPair(mStates[i]);
             seatList[i].addSeat();
         }

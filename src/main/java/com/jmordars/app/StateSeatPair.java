@@ -1,38 +1,34 @@
 package com.jmordars.app;
 
+import lombok.Getter;
+
+@Getter
 public class StateSeatPair {
-    private State mState;
-    private int mSeats;
-    private double mPriority;
+    private State state;
+    private int seats;
+    private double priority;
 
     public StateSeatPair(State state) {
-        mState = state;
-        mSeats = 0;
-        mPriority = 0;
+        this.state = state;
+        seats = 0;
+        priority = 0;
     }
 
     public void addSeat() {
-        ++mSeats;
+        ++seats;
     }
 
     public int getSeats() {
-        return mSeats;
+        return seats;
     }
 
     public void setPriority(double priority) {
-        mPriority = priority;
-    }
-
-    public double getPriority() {
-        return mPriority;
-    }
-
-    public State getState() {
-        return mState;
+        this.priority = priority;
     }
 
     public double getPopToRepRatio()
     {
-        return (double) mState.getPopulation2010() / mSeats;
+        return (double) state.getPopulation2010() / seats;
     }
 }
+
