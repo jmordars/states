@@ -78,6 +78,26 @@ class HuntingtonHill {
         return java.lang.Math.cbrt(population);
     }
 
+    public double calculateVariance(StateSeatPair[] seatList)
+    {
+        // first calculate the mean of the values
+        double sum = 0;
+        for(int i = 0; i < seatList.length; ++i)
+        {
+            sum += seatList[i].getPopToRepRatio();
+        }
+        double mean = sum / seatList.length;
+
+        // calculate variance
+        double variance = 0;
+        for(int i = 0; i < seatList.length; ++i)
+        {
+            variance += Math.pow((seatList[i].getPopToRepRatio() - mean), 2);
+        }
+
+        return variance;
+    }
+
     private void populateAndAddStates() {
         // adding populations from Wikipedia
         // Census Population -- July 1, 2019
