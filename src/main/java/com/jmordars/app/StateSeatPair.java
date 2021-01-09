@@ -28,7 +28,7 @@ public class StateSeatPair {
 
     public double getPopToRepRatio()
     {
-        return (double) state.getPopulation2010() / seats;
+        return (double) state.getPopulation() / seats;
     }
 
     public static double[] toDouble(StateSeatPair[] stateList)

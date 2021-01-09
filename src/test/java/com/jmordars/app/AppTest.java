@@ -61,17 +61,15 @@ public class AppTest
     public void testState()
     {
         // Verify Constructor
-        State state = new State("test", 1, 2, false);
-        assertFalse(state.hasSenators());
-        assertEquals(1, state.getPopulation2010());
-        assertEquals(2, state.getPopulation2019());
+        State state = new State("test", 1);
+        assertEquals(1, state.getPopulation());
         assertEquals("test", state.getName());
     }
 
     @Test
     public void testStateSeatPair()
     {
-        State state = new State("test", 1, 2, false);
+        State state = new State("test", 1);
         StateSeatPair ssp = new StateSeatPair(state);
         assertEquals(0, ssp.getSeats());
         assertTrue(state.equals(ssp.getState()));

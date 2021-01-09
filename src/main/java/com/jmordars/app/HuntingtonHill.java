@@ -7,7 +7,7 @@ class HuntingtonHill {
     public HuntingtonHill() {
         // create an array of 50 states
         mStates = new State[50];
-        populateAndAddStates();
+        populateAndAddStates(0);
     }
 
     public State[] getStates() {
@@ -47,7 +47,7 @@ class HuntingtonHill {
             for (int j = 0; j < seatList.length; ++j) {
                 // calculate priorities
                 StateSeatPair current = seatList[j];
-                current.setPriority(calculatePriority(current.getState().getPopulation2010(), current.getSeats() + 1));
+                current.setPriority(calculatePriority(current.getState().getPopulation(), current.getSeats() + 1));
             }
 
             // get the highest priority
@@ -105,59 +105,114 @@ class HuntingtonHill {
         return (step4 / step5);
     }
 
-    private void populateAndAddStates() {
+    private void populateAndAddStates(int year) {
         // adding populations from Wikipedia
-        // Census Population -- July 1, 2019
-        mStates[0] = new State("Alabama", 4802982, 4903185, true);
-        mStates[1] = new State("Alaska", 721523, 731545, true);
-        mStates[2] = new State("Arizona", 6412700, 7278717, true);
-        mStates[3] = new State("Arkansas", 2926229, 3017804, true);
-        mStates[4] = new State("California", 37341989, 39512223, true);
-        mStates[5] = new State("Colorado", 5044930, 5758736, true);
-        mStates[6] = new State("Connecticut", 3581628, 3565287, true);
-        mStates[7] = new State("Delaware", 900877, 973764, true);
-        // mStates[x] = (new State("District of Columbia", 601723,705749, false));
-        mStates[8] = new State("Florida", 18900773, 21477737, true);
-        mStates[9] = new State("Georgia", 9727566, 10617423, true);
-        mStates[10] = new State("Hawaii", 1366862, 1415872, true);
-        mStates[11] = new State("Idaho", 1573499, 1787065, true);
-        mStates[12] = new State("Illinois", 12864380, 12671821, true);
-        mStates[13] = new State("Indiana", 6501582, 6732219, true);
-        mStates[14] = new State("Iowa", 3053787, 3155070, true);
-        mStates[15] = new State("Kansas", 2863813, 2913314, true);
-        mStates[16] = new State("Kentucky", 4350606, 4467673, true);
-        mStates[17] = new State("Louisiana", 4553962, 4648794, true);
-        mStates[18] = new State("Maine", 1333074, 1344212, true);
-        mStates[19] = new State("Maryland", 5789929, 6045680, true);
-        mStates[20] = new State("Massachusetts", 6559644, 689503, true);
-        mStates[21] = new State("Michigan", 9911626, 9986857, true);
-        mStates[22] = new State("Minnesota", 5314879, 5639632, true);
-        mStates[23] = new State("Mississippi", 2978240, 2976149, true);
-        mStates[24] = new State("Missouri", 6011478, 6137428, true);
-        mStates[25] = new State("Montana", 994416, 1068778, true);
-        mStates[26] = new State("Nebraska", 1831825, 1934408, true);
-        mStates[27] = new State("Nevada", 2709432, 3080156, true);
-        mStates[28] = new State("New Hampshire", 1321445, 1359711, true);
-        mStates[29] = new State("New Jersey", 8807501, 8882190, true);
-        mStates[30] = new State("New Mexico", 2067273, 2096829, true);
-        mStates[31] = new State("New York", 19421055, 19453561, true);
-        mStates[32] = new State("North Carolina", 9565781, 10488084, true);
-        mStates[33] = new State("North Dakota", 675905, 762062, true);
-        mStates[34] = new State("Ohio", 11568495, 11689100, true);
-        mStates[35] = new State("Oklahoma", 3764882, 3956971, true);
-        mStates[36] = new State("Oregon", 3848606, 4217737, true);
-        mStates[37] = new State("Pennsylvania", 12734905, 12801989, true);
-        mStates[38] = new State("Rhode Island", 1055247, 1059361, true);
-        mStates[39] = new State("South Carolina", 4645975, 5148714, true);
-        mStates[40] = new State("South Dakota", 819761, 884659, true);
-        mStates[41] = new State("Tennessee", 6375431, 6829174, true);
-        mStates[42] = new State("Texas", 25268418, 28995881, true);
-        mStates[43] = new State("Utah", 2770765, 3205958, true);
-        mStates[44] = new State("Vermont", 630337, 623989, true);
-        mStates[45] = new State("Virginia", 8037736, 8535519, true);
-        mStates[46] = new State("Washington", 6753369, 7614893, true);
-        mStates[47] = new State("West Virginia", 1859815, 1792147, true);
-        mStates[48] = new State("Wisconsin", 5698230, 5822434, true);
-        mStates[49] = new State("Wyoming", 568300, 578759, true);
+
+        if(year == 2020) {
+            // 2020 populations
+            mStates[0] = new State("Alabama", 4903185);
+            mStates[1] = new State("Alaska", 731545);
+            mStates[2] = new State("Arizona", 7278717);
+            mStates[3] = new State("Arkansas", 3017804);
+            mStates[4] = new State("California", 39512223);
+            mStates[5] = new State("Colorado", 5758736);
+            mStates[6] = new State("Connecticut", 3565287);
+            mStates[7] = new State("Delaware", 973764);
+            mStates[8] = new State("Florida", 21477737);
+            mStates[9] = new State("Georgia", 10617423);
+            mStates[10] = new State("Hawaii", 1415872);
+            mStates[11] = new State("Idaho", 1787065);
+            mStates[12] = new State("Illinois", 12671821);
+            mStates[13] = new State("Indiana", 6732219);
+            mStates[14] = new State("Iowa", 3155070);
+            mStates[15] = new State("Kansas", 2913314);
+            mStates[16] = new State("Kentucky", 4467673);
+            mStates[17] = new State("Louisiana", 4648794);
+            mStates[18] = new State("Maine", 1344212);
+            mStates[19] = new State("Maryland", 6045680);
+            mStates[20] = new State("Massachusetts", 689503);
+            mStates[21] = new State("Michigan", 9986857);
+            mStates[22] = new State("Minnesota", 5639632);
+            mStates[23] = new State("Mississippi", 2976149);
+            mStates[24] = new State("Missouri", 6137428);
+            mStates[25] = new State("Montana", 1068778);
+            mStates[26] = new State("Nebraska", 1934408);
+            mStates[27] = new State("Nevada", 3080156);
+            mStates[28] = new State("New Hampshire", 1359711);
+            mStates[29] = new State("New Jersey", 8882190);
+            mStates[30] = new State("New Mexico", 2096829);
+            mStates[31] = new State("New York", 19453561);
+            mStates[32] = new State("North Carolina", 10488084);
+            mStates[33] = new State("North Dakota", 762062);
+            mStates[34] = new State("Ohio", 11689100);
+            mStates[35] = new State("Oklahoma", 3956971);
+            mStates[36] = new State("Oregon", 4217737);
+            mStates[37] = new State("Pennsylvania", 12801989);
+            mStates[38] = new State("Rhode Island", 1059361);
+            mStates[39] = new State("South Carolina", 5148714);
+            mStates[40] = new State("South Dakota", 884659);
+            mStates[41] = new State("Tennessee", 6829174);
+            mStates[42] = new State("Texas", 28995881);
+            mStates[43] = new State("Utah", 3205958);
+            mStates[44] = new State("Vermont", 623989);
+            mStates[45] = new State("Virginia", 8535519);
+            mStates[46] = new State("Washington", 7614893);
+            mStates[47] = new State("West Virginia", 1792147);
+            mStates[48] = new State("Wisconsin", 5822434);
+            mStates[49] = new State("Wyoming", 578759);
+        }
+        else {
+            // Census Population -- for 2010
+            mStates[0] = new State("Alabama", 4802982);
+            mStates[1] = new State("Alaska", 721523);
+            mStates[2] = new State("Arizona", 6412700);
+            mStates[3] = new State("Arkansas", 2926229);
+            mStates[4] = new State("California", 37341989);
+            mStates[5] = new State("Colorado", 5044930);
+            mStates[6] = new State("Connecticut", 3581628);
+            mStates[7] = new State("Delaware", 900877);
+            mStates[8] = new State("Florida", 18900773);
+            mStates[9] = new State("Georgia", 9727566);
+            mStates[10] = new State("Hawaii", 1366862);
+            mStates[11] = new State("Idaho", 1573499);
+            mStates[12] = new State("Illinois", 12864380);
+            mStates[13] = new State("Indiana", 6501582);
+            mStates[14] = new State("Iowa", 3053787);
+            mStates[15] = new State("Kansas", 2863813);
+            mStates[16] = new State("Kentucky", 4350606);
+            mStates[17] = new State("Louisiana", 4553962);
+            mStates[18] = new State("Maine", 1333074);
+            mStates[19] = new State("Maryland", 5789929);
+            mStates[20] = new State("Massachusetts", 6559644);
+            mStates[21] = new State("Michigan", 9911626);
+            mStates[22] = new State("Minnesota", 5314879);
+            mStates[23] = new State("Mississippi", 2978240);
+            mStates[24] = new State("Missouri", 6011478);
+            mStates[25] = new State("Montana", 994416);
+            mStates[26] = new State("Nebraska", 1831825);
+            mStates[27] = new State("Nevada", 2709432);
+            mStates[28] = new State("New Hampshire", 1321445);
+            mStates[29] = new State("New Jersey", 8807501);
+            mStates[30] = new State("New Mexico", 2067273);
+            mStates[31] = new State("New York", 19421055);
+            mStates[32] = new State("North Carolina", 9565781);
+            mStates[33] = new State("North Dakota", 675905);
+            mStates[34] = new State("Ohio", 11568495);
+            mStates[35] = new State("Oklahoma", 3764882);
+            mStates[36] = new State("Oregon", 3848606);
+            mStates[37] = new State("Pennsylvania", 12734905);
+            mStates[38] = new State("Rhode Island", 1055247);
+            mStates[39] = new State("South Carolina", 4645975);
+            mStates[40] = new State("South Dakota", 819761);
+            mStates[41] = new State("Tennessee", 6375431);
+            mStates[42] = new State("Texas", 25268418);
+            mStates[43] = new State("Utah", 2770765);
+            mStates[44] = new State("Vermont", 630337);
+            mStates[45] = new State("Virginia", 8037736);
+            mStates[46] = new State("Washington", 6753369);
+            mStates[47] = new State("West Virginia", 1859815);
+            mStates[48] = new State("Wisconsin", 5698230);
+            mStates[49] = new State("Wyoming", 568300);
+        }
     }
 }

@@ -41,7 +41,7 @@ public class MainApp {
         int totalUSPopulation = 0;
         State[] states = hh.getStates();
         for (int i = 0; i < states.length; ++i) {
-            totalUSPopulation += states[i].getPopulation2010();
+            totalUSPopulation += states[i].getPopulation();
         }
         System.out.println("Total Population: " + totalUSPopulation);
 
