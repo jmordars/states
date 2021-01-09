@@ -78,24 +78,31 @@ class HuntingtonHill {
         return java.lang.Math.cbrt(population);
     }
 
-    public double calculateVariance(StateSeatPair[] seatList)
+    public double calculateVariance(double[] values)
     {
         // first calculate the mean of the values
-        double sum = 0;
-        for(int i = 0; i < seatList.length; ++i)
+        double step1 = 0;
+        for(int i = 0; i < values.length; ++i)
         {
-            sum += seatList[i].getPopToRepRatio();
-        }
-        double mean = sum / seatList.length;
-
-        // calculate variance
-        double variance = 0;
-        for(int i = 0; i < seatList.length; ++i)
-        {
-            variance += Math.pow((seatList[i].getPopToRepRatio() - mean), 2);
+            step1 += values[i];
         }
 
-        return variance;
+        // square the total and divide by sum
+        double step2 = (Math.pow(step1, 2) / values.length);
+
+        // take original set of numbers, square individually and add up
+        double step3 = 0;
+        for(int i = 0; i < values.length; ++i)
+        {
+            step3 += Math.pow(values[i], 2);
+        }
+
+        // subtract the amount in step two from step 3
+        double step4 = step3 - step2;
+
+        double step5 = values.length - 1;
+
+        return (step4 / step5);
     }
 
     private void populateAndAddStates() {

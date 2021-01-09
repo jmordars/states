@@ -45,6 +45,16 @@ public class AppTest
         assertEquals((100 / java.lang.Math.sqrt(90)), hh.calculatePriority(100, 10), 0);
 
         assertEquals(3, hh.calculateTotalSeats(27), 0);
+
+        // test variance with 20 values
+        double[] testList = new double[20];
+        for(int i = 0; i < testList.length; ++i)
+        {
+            testList[i] = i;
+        }
+
+        double variance = hh.calculateVariance(testList);
+        assertEquals(35, variance, 0);
     }
 
     @Test
@@ -73,5 +83,12 @@ public class AppTest
         assertEquals(.5, ssp.getPopToRepRatio(), 0);
         ssp.setPriority(42.69);
         assertEquals(42.69, ssp.getPriority(), 0);
+
+        // test pop ratio list to list of ints
+        StateSeatPair[] seatList = new StateSeatPair[1];
+        seatList[0] = ssp;
+        double[] testList = StateSeatPair.toDouble(seatList);
+
+        assertEquals(testList[0], ssp.getPopToRepRatio(), 0);
     }
 }

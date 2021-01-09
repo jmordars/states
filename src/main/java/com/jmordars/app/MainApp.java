@@ -79,7 +79,8 @@ public class MainApp {
                 {
                     // base case of 50 and iterate through
                     seatList = hh.runHuntingtonHill(i);
-                    bw.write(i + ", " + hh.calculateVariance(seatList) + "\r");
+                    double[] popRatios = StateSeatPair.toDouble(seatList);
+                    bw.write(i + ", " + hh.calculateVariance(popRatios) + "\r");
 
                     // Something to watch, to see if we're still calculating
                     System.out.println("i value: " + i);

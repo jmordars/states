@@ -30,5 +30,16 @@ public class StateSeatPair {
     {
         return (double) state.getPopulation2010() / seats;
     }
+
+    public static double[] toDouble(StateSeatPair[] stateList)
+    {
+        double[] retVal = new double[stateList.length];
+        for(int i = 0; i < retVal.length; ++i)
+        {
+            retVal[i] = stateList[i].getPopToRepRatio();
+        }
+
+        return retVal;
+    }
 }
 
